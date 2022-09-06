@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Birthdday Wishes</title>
+  </head>
+  <body>
+    <!-- overall-div -->
+    <div
+      class="bg-blue-900 flex flex-col items-center h-auto rounded-[8px] w-full"
+    >
+      <div class="flex justify-around items-center rounded-lg h-20 w-full">
+        <i class="fas fa-bars px-3 text-white"></i>
+        <div class="text-white px-5 font-bold">Birthday Wishes</div>
+        <img src="./image/cake-birthday.png" alt="" class="w-20 h-20 px-2" />
+      </div>
+      <!-- main -->
+      <div
+        class="bg-[#ffff] h-10/12 rounded-t-[50px] w-full"
+      >
+        <div class="flex justify-center items-center w-full">
+          <div
+            class="flex justify-evenly w-9/12 bg-gray-100 m-6 p-2 rounded-lg"
+          >
+            <div class="text-blue-500 text-xl font-bold">Cards</div>
+            <div class="text-gray text-xl font-bold">Wishes</div>
+          </div>
+        </div>
+        <div class="flex justify-between w-10/12">
+          <div class="flex justify-center gap-3 w-7/12">
+         
+            <!-- <div class="text-2xl">&#x25a6;</div>
+            <div class="text-2xl">&#x25a6;</div> -->
+          </div>
+          <!-- <div class="text-3xl">&#x2b;</div> -->
+        </div>
+        <!-- image-con -->
+        <div class="relative h-[60vh]">
+         <!-- all birthday alert -->
+         <!-- <div class="show-date h-24"></div> -->
+
+         <div class="transition-transform block h-full  cele w-10/12 m-2  overflow-y-scroll ">
+           
+         </div>
+         
+
+
+
+
+          <!-- all the birthday details -->
+          <div class="transition-transform absolute overflow-hidden top-0 h-0 reminder w-10/12 m-2  overflow-y-scroll">
+            <div class="text-center  flex justify-center font-bold text-xl text-gray-800 p-2">Birthday Reminder</div>
+           <div class="flex justify-center w-full">
+            <div class="text-sm m-1 justify-center   gap-3 unlist w-full" >      
+              
+            </div>
+           </div>
+
+         </div>
+         <!-- json -->
+         <div class="transition-transform absolute overflow-hidden  top-0 con h-0  w-10/12 m-2  overflow-y-scroll">
+          <div class="text-center  flex justify-center font-bold text-xl text-gray-800 p-2">Birthday messages</div>
+         <div class="flex justify-center w-full">
+          <div class="text-sm m-1  sms w-full" > 
+            
+           
+            
+          </div>
+         </div>
+
+       </div>
+         <!-- form -->
+         <div class=" flex justify-center  form transition-transform absolute overflow-hidden  bottom-0 h-0 w-full">
+            <div class="w-10/12 mx-2 bg-gray-100 h-max p-2 rounded-lg">
+               <div class="flex justify-center " id="drop">
+                  <div class="w-10 h-1 bg-gray-900 rounded-lg"></div>
+               </div>
+               <h1 class="mb-3">Birthday details</h1>
+               <div class="flex flex-col my-2">
+                  <label for="Name">Name</label>
+                  <input type="text" id="input1" class=" inp border border-slate-300 rounded-[5px] h-10 outline-none px-2">
+               </div>
+               <div class="flex flex-col my-2">
+                  <label for="Name">Phone-number</label>
+                  <input type="text" id="input2" class="border  inp  border-slate-300 rounded-[5px] h-10 outline-none px-2">
+               </div>
+              <div>
+               <label for="">Date of Birth</label>
+               <div class="flex justify-between w-full">
+                 
+                  <select  id="input3" class="w-2/5 border rounded-[5px]  text-center h-10 outline-none mx-2 inp
+                   ">
+                    <option>day</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>29</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                    
+                  </select>
+                  
+                  <select  id="input4" class="w-2/5 border rounded-[5px] 
+                  text-center outline-none mx-2 inp ">
+                    <option>Month</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    
+                  </select>
+                 
+                  <select id="input5" class="w-3/5 border inp rounded-[5px] text-center border-slate-300 outline-none px-2">
+                    <option> Year</option>
+                    <option >1986</option>
+                    <option >1987</option>
+                    <option >1988</option>
+                    <option >1989</option>
+                    <option >1990</option>
+                    <option >1991</option>
+                    <option >1992</option>
+                    <option >1993</option>
+                    <option >1994</option>
+                    <option >1995</option>
+                    <option >1996</option>
+                    <option >1997</option>
+                    <option >1998</option>
+                    <option >1999</option>
+                    <option >2000</option>
+                    <option >2001</option>
+                  </select>
+               </div>
+              </div>
+              <div class="flex justify-end m-2">
+               <button type="submit" id="save" class="w-1/5 bg-gray-600 rounded-lg p-2 text-white font-bold cursor-pointer">Save</button>
+            </div>
+            </div>
+            
+         </div>
+        
+         
+        </div>
+        <div>
+          <div class="h-12 w-full bg-gray-100 rounded-[30px] flex justify-around items-center text-blue-500 my-5">
+           <div class="relative"> 
+            <i class="fas fa-birthday-cake cele-cake text-xl"></i>
+            <div class="absolute h-5 w-5 bg-red-500 rounded-full text-white text-center top-0 left-3 text-sm notify"></div>
+           </div>
+            <div><i class="far fa-envelope remind-btn"></i></div>
+            <div class="rounded-full h-10 w-10 bg-red-300 text-3xl text-white text-center mb-7 btn cursor-pointer">&#x2b</div>
+            <div><i class="far fa-calendar calan"></i></div>
+            <div><i class="fas fa-bars"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
+ 
