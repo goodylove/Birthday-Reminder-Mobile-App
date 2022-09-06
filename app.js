@@ -78,13 +78,16 @@ save.addEventListener("click", (e) => {
   });
 });
 btn.addEventListener("click", () => {
-  if (celeCon || reminder) {
+  if (celeCon || reminder || con) {
     celeCon.style.transform = "translateY(500px)";
     celeCon.style.transition = "1s";
     celeCon.style.height = "0%";
     reminder.style.transform = "translateY(500px)";
     reminder.style.transition = "1s";
     reminder.style.height = "0%";
+    con.style.transform = "translateY(500px)";
+    con.style.transition = "1s";
+    con.style.height = "0%";
   } else {
   }
   form.style.transform = "translateY(0)";
@@ -95,13 +98,16 @@ drop.addEventListener("click", () => {
   form.style.height = "0";
 });
 remindBtn.addEventListener("click", () => {
-  if (celeCon || form) {
+  if (celeCon || form || con) {
     celeCon.style.transform = "translateY(500px)";
     celeCon.style.transition = "1s";
     celeCon.style.height = "0%";
     form.style.transform = "translateY(500px)";
     form.style.transition = "1s";
     form.style.height = "0%";
+    con.style.transform = "translateY(500px)";
+    con.style.transition = "1s";
+    con.style.height = "0%";
   } else {
   }
   reminder.style.transform = "translateY(0)";
@@ -156,11 +162,11 @@ function showReminder() {
 function showSmS() {
   console.log(birthdayWishes);
   const showsSms = birthdayWishes.map((p) => {
-    return ` <div class="">
+    return ` <div class="cursor-pointer">
     <div> ${p.message}</div>
     <div> ${p.emoji1}${p.cakeEmoji1}</div>
 
-   <div class="flex justify-end"> <button type="button" class="w-12 text-center hover-text-blue-800 ounded-lg p-2 text-blue-200 font-bold cursor-pointer">copy</button>
+   <div class="flex justify-end"> <button type="button" class="w-12 text-center hover:text-blue-800 ounded-lg p-2 text-blue-200 font-bold cursor-pointer before:content-['copied'] p-10px  before:absolute before:rounded-lg before:bg-sky-900"><i class="fa fa-clone"></i></button>
    </div>
 
   </div>`;
@@ -168,7 +174,6 @@ function showSmS() {
 
   sms.innerHTML = `${showsSms.join("")}`;
 }
-showSmS();
 
 function birthDayAlert() {
   const getAllBirthInfo = JSON.parse(localStorage.getItem("birthkey"));
