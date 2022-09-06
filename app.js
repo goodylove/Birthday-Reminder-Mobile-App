@@ -17,6 +17,8 @@ const save = document.getElementById("save");
 const allInput = document.querySelectorAll(".inp");
 const reminder = document.querySelector(".reminder");
 let notify = document.querySelector(".notify");
+const copyBtn = document.querySelector("#copy-text-btn");
+const copyMessage = document.querySelector("#text-cop");
 const firstArray = [];
 let currentAarray = [];
 const con = document.querySelector(".con");
@@ -75,7 +77,12 @@ save.addEventListener("click", (e) => {
 
   allInput.forEach((inp) => {
     inp.value = "";
+    // celeCon.style.height = "100%";
   });
+  celeCon.style.transform = "translateY(0)";
+  celeCon.style.transition = "1s";
+  celeCon.style.height = "100%";
+  birthDayAlert();
 });
 btn.addEventListener("click", () => {
   if (celeCon || reminder || con) {
@@ -162,14 +169,12 @@ function showReminder() {
 function showSmS() {
   console.log(birthdayWishes);
   const showsSms = birthdayWishes.map((p) => {
-    return ` <div class="cursor-pointer">
-    <div> ${p.message}</div>
+    return ` <div class="cursor-pointer p-2">
+    <div id="text-cop"> ${p.message}</div>
     <div> ${p.emoji1}${p.cakeEmoji1}</div>
-
-   <div class="flex justify-end"> <button type="button" class="w-12 text-center hover:text-blue-800 ounded-lg p-2 text-blue-200 font-bold cursor-pointer before:content-['copied'] p-10px  before:absolute before:rounded-lg before:bg-sky-900"><i class="fa fa-clone"></i></button>
-   </div>
-
-  </div>`;
+    <div class="flex justify-end pr-3"> <button type="button" class="w-12 text-center hover:text-blue-800 ounded-lg p-2 text-blue-200 font-bold cursor-pointer id="copy-text-btn"><i class="fa fa-clone"></i></button>
+    </div>
+    </div>`;
   });
 
   sms.innerHTML = `${showsSms.join("")}`;
@@ -212,13 +217,16 @@ function birthDayAlert() {
 }
 birthDayAlert();
 celeIcon.addEventListener("click", () => {
-  if (reminder || form) {
+  if (reminder || form || con) {
     reminder.style.transform = "translateY(500px)";
     reminder.style.transition = "1s";
     reminder.style.height = "0%";
     form.style.transform = "translateY(500px)";
     form.style.transition = "1s";
     form.style.height = "0%";
+    con.style.transform = "translateY(500px)";
+    con.style.transition = "1s";
+    con.style.height = "0%";
   }
   celeCon.style.transform = "translateY(0)";
   celeCon.style.transition = "1s";
