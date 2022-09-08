@@ -41,7 +41,7 @@ let currentMonth = today.getMonth() + 1;
 
 let currentYear = today.getFullYear();
 console.log(currentYear);
-
+showDay.innerHTML = `${currentDay}-${currentMonth}-${currentYear}`;
 function getAge(value) {
   let getYea = new Date();
   let currentYears = getYea.getFullYear();
@@ -186,9 +186,9 @@ function birthDayAlert() {
   const info = getAllBirthInfo.filter((p) => {
     return p.d == currentDay && p.m == currentMonth;
   });
-  if (info.length !== 0) {
-    const celebrant = info.map((p) => {
-      return `<div class="flex flex-col justify-center items-center">
+
+  const celebrant = info.map((p) => {
+    return `<div class="flex flex-col justify-center items-center">
           
       <h1 class="text-bold text-xl animate-pulse text-blue-500"> The Celebrants</h1>
       <div class="flex justify-around items-center w-full py-2">
@@ -209,17 +209,15 @@ function birthDayAlert() {
             
             </div>
             </div>`;
-    });
+  });
+  const birthInfo = "No birthday Today!!";
+  if (info.length === 0) {
+    notify.textContent = 0;
+    celeCon.textContent = `${birthInfo}`;
+  } else {
     notify.textContent = info.length;
     celeCon.innerHTML = celebrant.join("");
-  } else {
-    celeCon.innerHTML = "No birthday today";
-    celeCon.style = "center";
-    notify.innerHTML = "0";
   }
-  // if (info.length == 0) {
-  // } else {
-  // }
 }
 
 birthDayAlert();
