@@ -30,7 +30,7 @@ let unlist = document.querySelector(".unlist");
 let celeIcon = document.querySelector(".cele-cake");
 let celeCon = document.querySelector(".cele");
 let show;
-// const showDay = document.querySelector(".show-date");
+const showDay = document.querySelector(".show-date");
 let today = new Date();
 
 let currentDay = today.getDate();
@@ -40,6 +40,7 @@ let currentMonth = today.getMonth() + 1;
 
 let currentYear = today.getFullYear();
 console.log(currentYear);
+showDay.innerHTML = `${currentDay}/${currentMonth}/${currentYear}`;
 
 function getAge(value) {
   let getYea = new Date();
