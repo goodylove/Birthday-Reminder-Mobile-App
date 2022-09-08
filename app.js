@@ -23,6 +23,7 @@ const firstArray = [];
 let currentAarray = [];
 const con = document.querySelector(".con");
 const sms = document.querySelector(".sms");
+const notifyCon = document.querySelector(".notify-con");
 
 const remindBtn = document.querySelector(".remind-btn");
 const drop = document.getElementById("drop");
@@ -40,7 +41,6 @@ let currentMonth = today.getMonth() + 1;
 
 let currentYear = today.getFullYear();
 console.log(currentYear);
-showDay.innerHTML = `${currentDay}/${currentMonth}/${currentYear}`;
 
 function getAge(value) {
   let getYea = new Date();
@@ -64,7 +64,6 @@ function getAllThePersonInfo(show) {
 }
 
 save.addEventListener("click", (e) => {
-  e.preventDefault();
   if (!localStorage.getItem("birthkey")) {
     getAllThePersonInfo(firstArray);
   } else {
@@ -84,6 +83,7 @@ save.addEventListener("click", (e) => {
   celeCon.style.transition = "1s";
   celeCon.style.height = "100%";
   birthDayAlert();
+  // location.reload();
 });
 btn.addEventListener("click", () => {
   if (celeCon || reminder || con) {
@@ -186,36 +186,42 @@ function birthDayAlert() {
   const info = getAllBirthInfo.filter((p) => {
     return p.d == currentDay && p.m == currentMonth;
   });
-  const celebrant = info.map((p) => {
-    return `<div class="flex flex-col justify-center items-center">
-        
-    <h1 class="text-bold text-xl animate-pulse text-blue-500"> The Celebrants</h1>
-    <div class="flex justify-around items-center w-full py-2">
-       <img src="./image/cake-birthday.png" alt="cake"  class="h-11 w-11">
-       <div>
-          <div class="birth">${p.name}</div>
-          <div>turns ${getAge(p.y)} today !!</div>
+  if (info.length !== 0) {
+    const celebrant = info.map((p) => {
+      return `<div class="flex flex-col justify-center items-center">
           
-          </div>
-          <div>
-          <div><a href="tel:+234${
-            p.number
-          }"><i class="fas fa-phone"></i></a></div>
-          <div><a href=" sms:+234${
-            p.number
-          }"> <i class="fas fa-sms"></i></a></div>
-          </div>
-          
-          </div>
-          </div>`;
-  });
-  if (info.length == 0) {
-    notify.style.display = "none";
-  } else {
+      <h1 class="text-bold text-xl animate-pulse text-blue-500"> The Celebrants</h1>
+      <div class="flex justify-around items-center w-full py-2">
+         <img src="./image/cake-birthday.png" alt="cake"  class="h-11 w-11">
+         <div>
+            <div class="birth font-bold">${p.name}</div>
+            <div>turns ${getAge(p.y)} today !!</div>
+            
+            </div>
+            <div>
+            <div><a href="tel:+234${
+              p.number
+            }"><i class="fas fa-phone"></i></a></div>
+            <div><a href="sms:+234${
+              p.number
+            }"> <i class="fas fa-sms"></i></a></div>
+            </div>
+            
+            </div>
+            </div>`;
+    });
     notify.textContent = info.length;
+    celeCon.innerHTML = celebrant.join("");
+  } else {
+    celeCon.innerHTML = "No birthday today";
+    celeCon.style = "center";
+    notify.innerHTML = "0";
   }
-  celeCon.innerHTML = celebrant.join("");
+  // if (info.length == 0) {
+  // } else {
+  // }
 }
+
 birthDayAlert();
 celeIcon.addEventListener("click", () => {
   if (reminder || form || con) {
