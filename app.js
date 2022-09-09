@@ -6,7 +6,9 @@ import birthdayWishes from "./jason.js";
 
 // https://www.google.com/search?client=firefox-b-d&q=how+to+import+in+javascript
 const calendar = document.querySelector(".calan");
+const calendar2 = document.querySelector(".calan2");
 const btn = document.querySelector(".btn");
+const btn2 = document.querySelector(".btn2");
 const form = document.querySelector(".form");
 const input1 = document.getElementById("input1");
 const input2 = document.getElementById("input2");
@@ -17,8 +19,11 @@ const save = document.getElementById("save");
 const allInput = document.querySelectorAll(".inp");
 const reminder = document.querySelector(".reminder");
 let notify = document.querySelector(".notify");
+let notify2 = document.querySelector(".notify2");
 const copyBtn = document.querySelector("#copy-text-btn");
 const copyMessage = document.querySelector("#text-cop");
+const menu = document.querySelector(".menu");
+const menuCon = document.querySelector(".menu-icon");
 const firstArray = [];
 let currentAarray = [];
 const con = document.querySelector(".con");
@@ -26,10 +31,12 @@ const sms = document.querySelector(".sms");
 const notifyCon = document.querySelector(".notify-con");
 
 const remindBtn = document.querySelector(".remind-btn");
+const remindBtn2 = document.querySelector(".remind-btn2");
 const drop = document.getElementById("drop");
 let unlist = document.querySelector(".unlist");
 let celeIcon = document.querySelector(".cele-cake");
 let celeCon = document.querySelector(".cele");
+let celeIcon2 = document.querySelector(".cele-cake2");
 let show;
 const showDay = document.querySelector(".show-date");
 let today = new Date();
@@ -41,7 +48,14 @@ let currentMonth = today.getMonth() + 1;
 
 let currentYear = today.getFullYear();
 console.log(currentYear);
-showDay.innerHTML = `${currentDay}-${currentMonth}-${currentYear}`;
+showDay.innerHTML = ` Date:${currentDay}-${currentMonth}-${currentYear}`;
+
+menu.addEventListener("click", () => {
+  console.log(menuCon);
+  menuCon.style.transform = "translateY(0px)";
+  menuCon.style.transition = "0.4s";
+});
+
 function getAge(value) {
   let getYea = new Date();
   let currentYears = getYea.getFullYear();
@@ -85,6 +99,60 @@ save.addEventListener("click", (e) => {
   birthDayAlert();
   // location.reload();
 });
+celeIcon2.addEventListener("click", () => {
+  if (reminder || form || con) {
+    reminder.style.transform = "translateY(500px)";
+    reminder.style.transition = "1s";
+    reminder.style.height = "0%";
+    form.style.transform = "translateY(500px)";
+    form.style.transition = "1s";
+    form.style.height = "0%";
+    con.style.transform = "translateY(500px)";
+    con.style.transition = "1s";
+    con.style.height = "0%";
+  }
+  celeCon.style.transform = "translateY(0)";
+  celeCon.style.transition = "1s";
+  celeCon.style.height = "90%";
+  reminder;
+  birthDayAlert();
+});
+
+celeIcon.addEventListener("click", () => {
+  if (reminder || form || con) {
+    reminder.style.transform = "translateY(500px)";
+    reminder.style.transition = "1s";
+    reminder.style.height = "0%";
+    form.style.transform = "translateY(500px)";
+    form.style.transition = "1s";
+    form.style.height = "0%";
+    con.style.transform = "translateY(500px)";
+    con.style.transition = "1s";
+    con.style.height = "0%";
+  }
+  celeCon.style.transform = "translateY(0)";
+  celeCon.style.transition = "1s";
+  celeCon.style.height = "90%";
+  reminder;
+  birthDayAlert();
+});
+btn2.addEventListener("click", () => {
+  if (celeCon || reminder || con) {
+    celeCon.style.transform = "translateY(500px)";
+    celeCon.style.transition = "1s";
+    celeCon.style.height = "0%";
+    reminder.style.transform = "translateY(500px)";
+    reminder.style.transition = "1s";
+    reminder.style.height = "0%";
+    con.style.transform = "translateY(500px)";
+    con.style.transition = "1s";
+    con.style.height = "0%";
+  } else {
+  }
+  form.style.transform = "translateY(0)";
+  form.style.transition = "1s";
+  form.style.height = "100%";
+});
 btn.addEventListener("click", () => {
   if (celeCon || reminder || con) {
     celeCon.style.transform = "translateY(500px)";
@@ -105,6 +173,25 @@ btn.addEventListener("click", () => {
 drop.addEventListener("click", () => {
   form.style.height = "0";
 });
+remindBtn2.addEventListener("click", () => {
+  if (celeCon || form || con) {
+    celeCon.style.transform = "translateY(500px)";
+    celeCon.style.transition = "1s";
+    celeCon.style.height = "0%";
+    form.style.transform = "translateY(500px)";
+    form.style.transition = "1s";
+    form.style.height = "0%";
+    con.style.transform = "translateY(500px)";
+    con.style.transition = "1s";
+    con.style.height = "0%";
+  } else {
+  }
+  reminder.style.transform = "translateY(0)";
+  reminder.style.transition = "1s";
+  reminder.style.height = "100%";
+  reminder;
+  showReminder();
+});
 remindBtn.addEventListener("click", () => {
   if (celeCon || form || con) {
     celeCon.style.transform = "translateY(500px)";
@@ -123,6 +210,25 @@ remindBtn.addEventListener("click", () => {
   reminder.style.height = "100%";
   reminder;
   showReminder();
+});
+calendar2.addEventListener("click", () => {
+  if (celeCon || form || reminder) {
+    celeCon.style.transform = "translateY(500px)";
+    celeCon.style.transition = "1s";
+    celeCon.style.height = "0%";
+    form.style.transform = "translateY(500px)";
+    form.style.transition = "1s";
+    form.style.height = "0%";
+    reminder.style.transform = "translateY(500px)";
+    reminder.style.transition = "1s";
+    reminder.style.height = "0%";
+  } else {
+  }
+  con.style.transform = "translateY(0)";
+  con.style.transition = "1s";
+  con.style.height = "100%";
+
+  showSmS();
 });
 calendar.addEventListener("click", () => {
   if (celeCon || form || reminder) {
@@ -150,7 +256,7 @@ function showReminder() {
 
   const showItems = got.map((p) => {
     return ` <div class=" p-2 w-full text-white-200 text-md font-bold flex justify-center">
-   <div class="flex items-center justify-center w-10/12 border border-slate-100 rounded-lg bg-gray-100 text-blue-400">
+   <div class="flex items-center justify-center w-10/12  xl:w-full border border-slate-100 rounded-lg bg-gray-100 text-blue-400">
     <div>
     <img src="./image/start-the-birthday-countdown-happy-birthday.gif" alt="" class="h-24 w-24">
     </div>
@@ -170,15 +276,22 @@ function showReminder() {
 function showSmS() {
   console.log(birthdayWishes);
   const showsSms = birthdayWishes.map((p) => {
-    return ` <div class="cursor-pointer p-2">
-    <div id="text-cop"> ${p.message}</div>
+    return ` <div class="cursor-pointer p-2  ">
+   
+    <div id="text-cop contents"> ${p.message}</div>
     <div> ${p.emoji1}${p.cakeEmoji1}</div>
-    <div class="flex justify-end pr-3"> <button type="button" class="w-12 text-center hover:text-blue-800 ounded-lg p-2 text-blue-200 font-bold cursor-pointer id="copy-text-btn"><i class="fa fa-clone"></i></button>
+    <div class="flex justify-end pr-3"> <button type="button" class="w-12 text-center hover:text-blue-800 ounded-lg p-2 text-blue-200 font-bold cursor-pointer copy-text-btn "><i class="fa fa-clone"></i></button>
     </div>
     </div>`;
   });
 
   sms.innerHTML = `${showsSms.join("")}`;
+  let cloneBtn = document.querySelector("copy-text-btn");
+  cloneBtn.addEventListener("click", () => {
+    let content = document.getElementById("contents").textContent;
+    console.log("working");
+    navigator.clipboard.writeText(content);
+  });
 }
 
 function birthDayAlert() {
@@ -189,56 +302,38 @@ function birthDayAlert() {
 
   const celebrant = info.map((p) => {
     return `<div class="flex flex-col justify-center items-center">
-          
+
       <h1 class="text-bold text-xl animate-pulse text-blue-500"> The Celebrants</h1>
       <div class="flex justify-around items-center w-full py-2">
          <img src="./image/cake-birthday.png" alt="cake"  class="h-11 w-11">
-         <div>
-            <div class="birth font-bold">${p.name}</div>
+         <div class="xl:flex justify-between gap-2">
+            <div class="birth font-bold px-2">${p.name}</div>
             <div>turns ${getAge(p.y)} today !!</div>
-            
+
             </div>
-            <div>
+            <div class="xl:flex justify-between">
             <div><a href="tel:+234${
               p.number
-            }"><i class="fas fa-phone"></i></a></div>
+            }"><i class="fas fa-phone px-3"></i></a></div>
             <div><a href="sms:+234${
               p.number
             }"> <i class="fas fa-sms"></i></a></div>
             </div>
-            
+
             </div>
             </div>`;
   });
+  celeCon.innerHTML = celebrant.join("");
+
   const birthInfo = "No birthday Today!!";
-  if (info.length === 0) {
-    notify.textContent = 0;
-    celeCon.textContent = `${birthInfo}`;
-  } else {
+  if (info.length !== 0) {
+    notify2.textContent = info.length;
     notify.textContent = info.length;
     celeCon.innerHTML = celebrant.join("");
+  } else {
+    celeCon.textContent = `${birthInfo}`;
+    notify2.textContent = "0";
+    notify.textContent = "0";
   }
 }
-
 birthDayAlert();
-celeIcon.addEventListener("click", () => {
-  if (reminder || form || con) {
-    reminder.style.transform = "translateY(500px)";
-    reminder.style.transition = "1s";
-    reminder.style.height = "0%";
-    form.style.transform = "translateY(500px)";
-    form.style.transition = "1s";
-    form.style.height = "0%";
-    con.style.transform = "translateY(500px)";
-    con.style.transition = "1s";
-    con.style.height = "0%";
-  }
-  celeCon.style.transform = "translateY(0)";
-  celeCon.style.transition = "1s";
-  celeCon.style.height = "90%";
-  reminder;
-  birthDayAlert();
-});
-{
-  /* <a href="sms:+18664504185?&body=Hi%2520there%252C%2520I%2527d%2520like%2520to%2520place%2520an%2520order%2520for...">Click here to text us!</a> */
-}

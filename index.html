@@ -10,21 +10,45 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <title>Birthdday Wishes</title>
+   
   </head>
   <body>
     <!-- overall-div -->
+    <div>
+    <div class="w-full md:flex justify-center md:max-h-[100vh] ">
     <div
-      class="bg-blue-900 flex flex-col items-center h-auto rounded-[8px] w-full"
+      class="bg-blue-900 flex flex-col items-center h-auto rounded-[8px]  md:w-full md:flex md:justify-center md:max-h-auto"
     >
       <div class="flex justify-around items-center rounded-lg h-20 w-full">
-        <i class="fas fa-bars px-3 text-white"></i>
-        <div class="text-white px-5 font-bold">Birthday Wishes</div>
+        <div class="sm:"><i class="fas fa-bars px-3 text-white menu text-2xl"></i></div>
+        
+        <div class="text-white px-5 font-bold xl:text-2xl">Birthday Wishes</div>
         <img src="./image/cake-birthday.png" alt="" class="w-20 h-20 px-2" />
       </div>
+     
       <!-- main -->
       <div
+      
         class="bg-[#ffff] h-10/12 rounded-t-[50px] w-full"
       >
+       <!-- bar -->
+       <div class="w-full flex justify-center translate-y-[-500px] h-0 md:translate-y-[0] md:h-24 xl:translate-y-[0] xl:h-24">
+        <div class="w-full flex justify-center"><div class="h-12 w-9/12 bg-gray-200 flex justify-around items-center text-blue-500 my-5 rounded-lg  ">
+          <div class="relative "> 
+           <i class="fas fa-birthday-cake cele-cake text-xl"></i>
+        
+           <div class="absolute h-5 w-5 bg-red-500 rounded-full text-white text-center top-0 left-3 text-sm notify"></div>
+          
+          </div>
+           <div><i class="far fa-envelope remind-btn"></i></div>
+           <div class="rounded-full h-10 w-10 bg-red-300 text-3xl text-white text-center mt-3 btn cursor-pointer">&#x2b</div>
+           <div><i class="far fa-calendar calan"></i></div>
+           <div><i class="fas fa-bars"></i></div>
+         </div></div>
+      <div>
+       
+      </div>
+      </div>
         <div class="flex justify-center items-center w-full">
           <div
             class="flex justify-evenly w-9/12 bg-gray-100 m-6 p-2 rounded-lg"
@@ -35,17 +59,19 @@
         </div>
         <div class="flex justify-between w-11/12">
           <div class="flex justify-center w-full">
-            <div class="show-date h-auto text-center"></div>
+            <div class="show-date h-auto text-center w-full xl:ml-[65px]"></div>
           </div>
         
             <!-- <div class="text-2xl">&#x25a6;</div>
             <div class="text-2xl">&#x25a6;</div> -->
           <!-- <div class="text-3xl">&#x2b;</div> -->
         </div>
+        
+       
         <!-- image-con -->
-        <div class="relative h-[60vh]">
+        <!-- <div class="h-auto show-date w-full text-center"></div> -->
+        <div class="relative h-[60vh] xl:flex justify-center">
          <!-- all birthday alert -->
-           <div class="h-auto show-date"></div>
          <div class="transition-transform block h-full  cele w-10/12 m-2  overflow-y-scroll"  style="text-align: center;">
            
          </div>
@@ -56,7 +82,10 @@
 
           <!-- all the birthday details -->
           <div class="transition-transform absolute overflow-hidden top-0 h-0 reminder w-10/12 m-2  overflow-y-scroll">
-            <div class="text-center  flex justify-center font-bold text-xl text-gray-800 p-2">Birthday Reminder</div>
+            <div class="text-center  flex justify-center font-bold text-xl text-gray-800 p-2">Birthday Reminder
+              
+            </div>
+            
            <div class="flex justify-center w-full">
             <div class="text-sm m-1 justify-center   gap-3 unlist w-full" >      
               
@@ -65,10 +94,13 @@
 
          </div>
          <!-- json -->
-         <div class="transition-transform absolute overflow-hidden  top-0 con h-0  w-10/12 m-2  overflow-y-scroll">
-          <div class="text-center  flex justify-center font-bold text-xl text-gray-800 p-2">Birthday messages</div>
+         <div class="transition-transform absolute overflow-hidden  top-0 con h-0  w-10/12 m-2  overflow-y-scroll md:flex justify-center flex-col md:w-full">
+          <div class="text-center  flex justify-center flex-col font-bold text-xl text-gray-800 p-2">
+           <span> Birthday messages</span>
+            <i class="text-sm">copy any message of your choice to clipboard</i>
+          </div>
          <div class="flex justify-center w-full">
-          <div class="text-sm m-1  sms w-full" > 
+          <div class="text-sm m-1  sms w-auto xl:flex justify-center flex-col mx-4" > 
             
            
             
@@ -78,7 +110,7 @@
        </div>
          <!-- form -->
          <div class=" flex justify-center  form transition-transform absolute overflow-hidden  bottom-0 h-0 w-full">
-            <div class="w-10/12 mx-2 bg-gray-100 h-max p-2 rounded-lg">
+            <div class="w-10/12 mx-2 bg-gray-100 h-max p-2 rounded-lg xl:w-9/12">
                <div class="flex justify-center " id="drop">
                   <div class="w-10 h-1 bg-gray-900 rounded-lg"></div>
                </div>
@@ -172,7 +204,7 @@
                </div>
               </div>
               <div class="flex justify-end m-2">
-               <button type="submit" id="save" class="w-1/5 bg-gray-600 rounded-lg p-2 text-white font-bold cursor-pointer">Save</button>
+               <button type="submit" id="save" class="w-1/5  xl:w-auto bg-gray-600 rounded-lg p-2 text-white font-bold cursor-pointer">Save</button>
             </div>
             </div>
             
@@ -181,21 +213,23 @@
          
         </div>
         <div>
-          <div class="h-12 w-full bg-gray-100 rounded-[30px] flex justify-around items-center text-blue-500 my-5">
+          <div class="h-12 w-full bg-gray-100 rounded-[30px] flex justify-around items-center text-blue-500 my-5 xl:hidden md:hidden">
            <div class="relative "> 
-            <i class="fas fa-birthday-cake cele-cake text-xl"></i>
+            <i class="fas fa-birthday-cake cele-cake2 text-xl"></i>
          
-            <div class="absolute h-5 w-5 bg-red-500 rounded-full text-white text-center top-0 left-3 text-sm notify"></div>
+            <div class="absolute h-5 w-5 bg-red-500 rounded-full text-white text-center top-0 left-3 text-sm notify2"></div>
            
            </div>
-            <div><i class="far fa-envelope remind-btn"></i></div>
-            <div class="rounded-full h-10 w-10 bg-red-300 text-3xl text-white text-center mb-7 btn cursor-pointer">&#x2b</div>
-            <div><i class="far fa-calendar calan"></i></div>
+            <div><i class="far fa-envelope remind-btn2"></i></div>
+            <div class="rounded-full h-10 w-10 bg-red-300 text-3xl text-white text-center mb-7 btn2 cursor-pointer">&#x2b</div>
+            <div><i class="far fa-calendar calan2"></i></div>
             <div><i class="fas fa-bars"></i></div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
     <script src="app.js" type="module"></script>
   </body>
 </html>
