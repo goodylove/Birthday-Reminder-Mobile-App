@@ -2,9 +2,6 @@
 
 import birthdayWishes from "./jason.js";
 
-// https://esdiscuss.org/topic/ambiguity-with-default-exports-and-live-bindings
-
-// https://www.google.com/search?client=firefox-b-d&q=how+to+import+in+javascript
 const calendar = document.querySelector(".calan");
 const calendar2 = document.querySelector(".calan2");
 const btn = document.querySelector(".btn");
@@ -26,6 +23,7 @@ const menu = document.querySelector(".menu");
 const menuCon = document.querySelector(".menu-icon");
 const firstArray = [];
 let currentAarray = [];
+
 const con = document.querySelector(".con");
 const sms = document.querySelector(".sms");
 const notifyCon = document.querySelector(".notify-con");
@@ -39,6 +37,7 @@ let celeCon = document.querySelector(".cele");
 let celeIcon2 = document.querySelector(".cele-cake2");
 let show;
 const showDay = document.querySelector(".show-date");
+// functionalities
 let today = new Date();
 
 let currentDay = today.getDate();
@@ -91,13 +90,11 @@ save.addEventListener("click", (e) => {
 
   allInput.forEach((inp) => {
     inp.value = "";
-    // celeCon.style.height = "100%";
   });
   celeCon.style.transform = "translateY(0)";
   celeCon.style.transition = "1s";
   celeCon.style.height = "100%";
   birthDayAlert();
-  // location.reload();
 });
 celeIcon2.addEventListener("click", () => {
   if (reminder || form || con) {
@@ -274,25 +271,32 @@ function showReminder() {
 }
 // sms
 function showSmS() {
-  console.log(birthdayWishes);
   const showsSms = birthdayWishes.map((p) => {
     return ` <div class="cursor-pointer p-2  ">
    
-    <div id="text-cop contents"> ${p.message}</div>
+    <div id="text-cop" class="contents"> ${p.message}</div>
     <div> ${p.emoji1}${p.cakeEmoji1}</div>
-    <div class="flex justify-end pr-3"> <button type="button" class="w-12 text-center hover:text-blue-800 ounded-lg p-2 text-blue-200 font-bold cursor-pointer copy-text-btn "><i class="fa fa-clone"></i></button>
+    <div class="flex justify-end pr-3 copy-text-btn"> <button type="button" class="w-12 text-center hover:text-blue-800 rounded-lg p-2 text-blue-200 font-bold cursor-pointer ">Copy</button>
     </div>
     </div>`;
   });
 
   sms.innerHTML = `${showsSms.join("")}`;
-  let cloneBtn = document.querySelector("copy-text-btn");
-  cloneBtn.addEventListener("click", () => {
-    let content = document.getElementById("contents").textContent;
-    console.log("working");
-    navigator.clipboard.writeText(content);
+  let cloneBtn = document.querySelectorAll(".copy-text-btn");
+  let changeBtnToArray = [...cloneBtn];
+  changeBtnToArray.forEach((p) => {
+    p.addEventListener("click", (event) => {
+      const getParent = p.parentElement;
+      let content = getParent.querySelector(".contents");
+
+      let copied = content.textContent;
+
+      navigator.clipboard.writeText(copied);
+    });
   });
 }
+
+showSmS();
 
 function birthDayAlert() {
   const getAllBirthInfo = JSON.parse(localStorage.getItem("birthkey"));
