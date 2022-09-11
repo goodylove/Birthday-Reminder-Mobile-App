@@ -40,11 +40,11 @@ const showDay = document.querySelector(".show-date");
 // functionalities
 let today = new Date();
 
-let currentDay = today.getDate();
+let currentDay = dayjs(today).format("D");
 console.log(currentDay);
 
-let currentMonth = today.getMonth() + 1;
-
+let currentMonth = dayjs(today).format("MMMM");
+console.log(currentMonth);
 let currentYear = today.getFullYear();
 console.log(currentYear);
 showDay.innerHTML = ` Date:${currentDay}-${currentMonth}-${currentYear}`;
@@ -55,22 +55,13 @@ menu.addEventListener("click", () => {
   menuCon.style.transition = "0.4s";
 });
 
-function getAge(value) {
-  let getYea = new Date();
-  let currentYears = getYea.getFullYear();
-  let now = currentYears - value;
-  return now;
-}
-
 function getAllThePersonInfo(show) {
   let allInfo = {
     name: input1.value,
     number: input2.value,
     d: input3.value,
     m: input4.value,
-    y: input5.value,
   };
-  console.log(input5.value);
 
   show.push(allInfo);
   localStorage.setItem("birthkey", JSON.stringify(show));
@@ -260,7 +251,7 @@ function showReminder() {
     <div class="flex flex-wrap flex-col items-center p-2 gap-2 w-9/12">
     <p class="text-2xl font-bold ">${p.name}</p>
     <p class="text-black">${p.number}</p>
-    <p><span class="day text-black">${p.d}-</span><span class="mon text-black">${p.m}</span>-<span class=" text-black year">${p.y}</span></p>
+    <p><span class="day text-black">${p.d}-</span><span class="mon text-black">${p.m}</span></p>
     </div>
     
    </div>
@@ -310,18 +301,15 @@ function birthDayAlert() {
       <h1 class="text-bold text-xl animate-pulse text-blue-500"> The Celebrants</h1>
       <div class="flex justify-around items-center w-full py-2">
          <img src="./image/cake-birthday.png" alt="cake"  class="h-11 w-11">
-         <div class="xl:flex justify-between gap-2">
+         <div class="xl:flex justify-between gap-2 flex-col">
             <div class="birth font-bold px-2">${p.name}</div>
-            <div>turns ${getAge(p.y)} today !!</div>
+            <div>${currentDay}-${currentMonth}</div>
+            
 
             </div>
             <div class="xl:flex justify-between">
-            <div><a href="tel:+234${
-              p.number
-            }"><i class="fas fa-phone px-3"></i></a></div>
-            <div><a href="sms:+234${
-              p.number
-            }"> <i class="fas fa-sms"></i></a></div>
+            <div><a href="tel:+234${p.number}"><i class="fas fa-phone px-3"></i></a></div>
+            <div><a href="sms:+234${p.number}"> <i class="fas fa-sms"></i></a></div>
             </div>
 
             </div>
