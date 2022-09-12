@@ -278,6 +278,7 @@ function showSmS() {
   changeBtnToArray.forEach((p) => {
     p.addEventListener("click", (event) => {
       const getParent = p.parentElement;
+      console.log(getParent);
       let content = getParent.querySelector(".contents");
 
       let copied = content.textContent;
